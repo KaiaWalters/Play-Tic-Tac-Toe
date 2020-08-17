@@ -3,8 +3,8 @@ const game = {
   icon: "x", 
 
   winuser: "",
-  user1: "",
-  user2: "",
+  userOne: "",
+  userTwo: "",
 
   alertWinner: function(){
     alert(this.winuser + ", you have won!")
@@ -12,10 +12,10 @@ const game = {
   changePlayer: function(){
     if(this.turn%2==0){
       this.icon = "o";
-      this.winuser = this.user2;
+      this.winuser = this.userTwo;
     }else{
       this.icon = "x"
-      this.winuser = this.user1;
+      this.winuser = this.userOne;
     }
     this.turn++ ;
   },
