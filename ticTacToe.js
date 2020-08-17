@@ -1,16 +1,15 @@
 const game = {
-  turn: 1, // number value that equate to how many turns are given before it switches? ASK LEON TO CLARIFY
-  icon: "x", //why was icon initialized to x?
-  //x = document.getElementByID("tick").innerHTML="image"
-  //o = document.getElementById("toe")
+  turn: 1,
+  icon: "x", 
+
   winuser: "",
   user1: "",
   user2: "",
 
   alertWinner: function(){
-    alert(this.winuser + ", you have won!")//so that the player icon that is returned shows the person who won
+    alert(this.winuser + ", you have won!")
   },
-  changePlayer: function(){//same stuff that we had in ourlast function, how is this object oriented though
+  changePlayer: function(){
     if(this.turn%2==0){
       this.icon = "o";
       this.winuser = this.user2;
@@ -18,13 +17,11 @@ const game = {
       this.icon = "x"
       this.winuser = this.user1;
     }
-    this.turn++;//is this incrementing the turns by one?
+    this.turn++ ;
   },
   createPlayers: function(){
-    var x = prompt("Enter First Player Name");
-    this.user1 = x;
-    var y = prompt("Enter Second Player Name");
-    this.user2 = y;
+    this.userOne = prompt("Enter First Player Name");
+    this.userTwo = prompt("Enter Second Player Name");
   },
   checkForWin: function(){
     const box1 = document.querySelector("#box1")
