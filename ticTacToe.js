@@ -3,16 +3,28 @@ const game = {
   icon: "x", //why was icon initialized to x?
   //x = document.getElementByID("tick").innerHTML="image"
   //o = document.getElementById("toe")
+  winuser: "",
+  user1: "",
+  user2: "",
+
   alertWinner: function(){
-    alert(this.icon + ", you have won!")//so that the player icon that is returned shows the person who won
+    alert(this.winuser + ", you have won!")//so that the player icon that is returned shows the person who won
   },
   changePlayer: function(){//same stuff that we had in ourlast function, how is this object oriented though
     if(this.turn%2==0){
-      this.icon = "o"
+      this.icon = "o";
+      this.winuser = this.user2;
     }else{
       this.icon = "x"
+      this.winuser = this.user1;
     }
     this.turn++;//is this incrementing the turns by one?
+  },
+  createPlayers: function(){
+    var x = prompt("Enter First Player Name");
+    this.user1 = x;
+    var y = prompt("Enter Second Player Name");
+    this.user2 = y;
   },
   checkForWin: function(){
     const box1 = document.querySelector("#box1")
@@ -45,7 +57,7 @@ const game = {
 }
 
 const sections = document.querySelectorAll("section");
-
+game.createPlayers();
 sections.forEach(function(el) {
     el.addEventListener("click", function() {
       if( this.textContent == ""){
